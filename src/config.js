@@ -1,6 +1,6 @@
 const config = {
-  API_URL: 'http://localhost:3030',
-  SOCKET_URL: 'http://localhost:3030',
+  API_URL: 'https://calamity-api.wecrawl.io',
+  SOCKET_URL: 'https://calamity-api.wecrawl.io',
 };
 
 export default config;
