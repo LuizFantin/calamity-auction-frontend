@@ -1,0 +1,120 @@
+:root {
+  --border-radius: 5px;
+  --padding-standard: 16px;
+  --background-opacity: 0.85;
+  --form-width: 350px;
+  --form-gap: 1rem;
+  --logo-width: 150px;
+  --position-offset: 20px;
+  --font-size-medium: 16px;
+  --button-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --button-hover-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  --button-hover-transform: translateY(-2px);
+  --transition-duration: 0.3s;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url('../../public/background_1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.login-form {
+  background: rgba(255, 255, 255, 0.2);
+  padding: calc(var(--padding-standard) * 3);
+  border-radius: calc(var(--border-radius) * 2);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  font-size: var(--font-size-medium);
+  border: none;
+  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, var(--background-opacity));
+  font-family: 'Roboto', sans-serif;
+}
+
+.login-button,
+.observer-button {
+  padding: var(--padding-standard);
+  font-size: var(--font-size-medium);
+  font-weight: 500;
+  border: none;
+  border-radius: var(--border-radius);
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+  box-shadow: var(--button-shadow);
+  transition: all var(--transition-duration) ease;
+  font-family: 'Roboto', sans-serif;
+}
+
+.login-button {
+  background: #4285F4;
+  margin-top: 10px;
+}
+
+.observer-button {
+  background: #F4B400;
+}
+
+.login-button:hover,
+.observer-button:hover {
+  box-shadow: var(--button-hover-shadow);
+  transform: var(--button-hover-transform);
+}
+
+.logo-container {
+  position: absolute;
+  bottom: var(--position-offset);
+  left: var(--position-offset);
+}
+
+.logo {
+  width: var(--logo-width);
+  height: auto;
+}
+
+.password-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-input-container .login-input {
+  padding-right: 40px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-45%);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.password-toggle svg {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 10px;
+}

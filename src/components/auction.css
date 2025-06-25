@@ -1,0 +1,652 @@
+/* auction.css */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-image: url('../../public/background_2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auction-room {
+  padding: 20px;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auction-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 36px;
+  color: #ffd700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.auction-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.available-players-list {
+  width: 550px;
+  padding: 20px;
+  background: rgba(54, 38, 107, 1);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.available-players-list h2 {
+  text-align: center;
+  color: #ffd700;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.role-filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.role-name {
+  display: block;
+  font-size: 16px;
+  margin-top: 5px;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.role-filter:hover .role-name,
+.role-filter.active .role-name {
+  opacity: 1;
+  color: #ffd700;
+}
+
+.role-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+}
+
+
+.role-filter {
+  background: none;
+  border: none;
+  cursor: pointer;
+  /* padding: 5px; */
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.role-filter img {
+  width: 45px;
+  height: 45px;
+  transition: all 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.role-filter span {
+  width: 45px;
+  height: 45px;
+}
+
+.role-filter.active::after {
+  background: rgba(97, 218, 251, 0.2);
+}
+
+.role-filter:hover img,
+.role-filter.active img {
+  filter: grayscale(0%);
+}
+
+.role-filter:hover {
+  transform: translateY(-2px);
+}
+
+.role-filter:active {
+  transform: translateY(1px);
+}
+
+.team-card {
+  background: rgba(54, 38, 107, 1);
+  margin: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.team-card.user-team {
+  background: linear-gradient(135deg, rgb(74, 48, 127), rgb(98, 63, 156));
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+.available-player-card,
+.team-player-card {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.team-gold {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffd700;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.team-gold::before {
+  content: '💰';
+  margin-right: 5px;
+}
+
+.available-player-card {
+  padding: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.team-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 0 20px;
+  height: 40px;
+  flex-direction: row;
+}
+
+.team-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+  gap: 15px;
+  margin-left: 20px;
+  height: 100%;
+  width: 100%;
+  max-width: calc(90vw - 640px);
+  /* Adjust this value based on your layout needs */
+}
+
+.team-card {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 550px;
+  padding: 10px;
+  justify-self: center;
+  margin: 0;
+}
+
+.team-name {
+  text-align: center;
+  color: #ffd700;
+}
+
+.team-player-card {
+  padding: 5px;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.team-player-card.captain {
+  border: 2px solid #ffd700;
+}
+
+.player-name {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.player-name-battletag {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  overflow: hidden;
+}
+
+.player-name-battletag>* {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-info {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.player-info.captain {
+  color: #ffd700;
+}
+
+.player-battletag {
+  color: #61dafb;
+}
+
+.player-price-buy {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.player-price {
+  font-size: 16px;
+  color: #4caf50;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.player-details {
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  align-items: center;
+}
+
+.buy-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 5px;
+}
+
+.buy-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.player-icon {
+  height: 30px;
+  padding: 5px;
+  vertical-align: middle;
+}
+
+.player-icon.lang {
+  height: 22px;
+  padding: 5px;
+  vertical-align: middle;
+}
+
+.spoken-languages-container {
+  width: 120px;
+  height: 100%;
+  text-align: center;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.spoken-languages {
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+/* Favorite player styling */
+.available-player-card.favorite,
+.team-player-card.favorite {
+  background: linear-gradient(135deg, rgba(174, 152, 25, 0.552), rgba(192, 171, 52, 0.662));
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
+.available-player-card.unavailable,
+.team-player-card.unavailable {
+  background: linear-gradient(135deg, rgba(225, 25, 25, 0.552), rgba(192, 52, 52, 0.9));
+  border: 1px solid rgba(255, 0, 0, 0.5);
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+.favorite-star {
+  color: #ffd700;
+  font-size: 18px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.favorite-star:hover {
+  transform: scale(1.2);
+}
+
+/* Add this at the end of your CSS file */
+
+@media (max-width: 767px) {
+  .auction-room {
+    padding: 10px;
+  }
+
+  .auction-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .auction-content {
+    flex-direction: column;
+  }
+
+  .available-players-list {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+
+  .team-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .team-card {
+    width: 100%;
+    max-width: none;
+  }
+
+  .team-header {
+    padding: 0 10px;
+  }
+
+  .team-name {
+    font-size: 18px;
+  }
+
+  .player-icon {
+    height: 25px;
+    padding: 3px;
+  }
+
+  .buy-button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .logo-container {
+    position: static;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .logo {
+    width: 100px;
+  }
+
+  .transaction-history {
+    padding: 10px;
+  }
+
+  .transaction-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .transaction-item>div {
+    text-align: left;
+    margin-bottom: 5px;
+  }
+}
+
+.favorite-filter {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.favorite-filter .favorite-star {
+  margin-left: 0px;
+  width: 55px;
+  height: 55px;
+  font-size: 28px;
+  line-height: 55px;
+  text-align: center;
+  color: #ccc;
+  transition: all 0.3s ease;
+}
+
+.favorite-filter.active .favorite-star {
+  color: #ffd700;
+}
+
+.favorite-filter:hover .favorite-star {
+  transform: scale(1.2);
+}
+
+.relative {
+  position: relative;
+}
+
+.transaction-history {
+  background: rgb(84, 65, 146);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: white;
+  position: absolute;
+  top: 45px;
+  left: 100px;
+  width: 250px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.transaction-history h2 {
+  color: #ffd700;
+  margin: 0;
+  padding: 15px;
+  text-align: center;
+  font-size: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.transaction-history-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.transaction-history:hover .transaction-history-content {
+  max-height: 300px;
+  /* Adjust this value to control expansion */
+  overflow-y: auto;
+}
+
+.transaction-history:hover {
+  width: 300px;
+  /* Slightly wider on hover */
+}
+
+.transaction-header,
+.transaction-item {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.transaction-header {
+  background: rgba(255, 255, 255, 0.25);
+  font-weight: bold;
+  margin: 15px;
+  margin-bottom: 5px;
+}
+
+.transaction-history ul {
+  list-style-type: none;
+  padding: 0 15px 15px;
+  margin: 0;
+}
+
+.transaction-item {
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 3px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.transaction-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.transaction-header span,
+.transaction-item span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.transaction-item span:nth-child(1) {
+  color: #61dafb;
+}
+
+/* Buyer */
+.transaction-item span:nth-child(2) {
+  color: #4caf50;
+}
+
+/* Player */
+.transaction-item span:nth-child(3) {
+  color: #ffd700;
+}
+
+/* Price */
+.transaction-item span:nth-child(4) {
+  color: #ff9800;
+}
+
+/* Seller */
+
+@media (max-width: 767px) {
+
+  .transaction-header,
+  .transaction-item {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .transaction-header {
+    display: none;
+  }
+
+  .transaction-item {
+    padding: 15px 10px;
+    gap: 5px;
+  }
+
+  .transaction-item span {
+    margin-bottom: 5px;
+  }
+}
+
+/* Add this to your auction.css file */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: rgba(54, 38, 107, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-title {
+  color: #ffd700;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.modal-message {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.confirm-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.cancel-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.modal-button:hover {
+  opacity: 0.8;
+}
