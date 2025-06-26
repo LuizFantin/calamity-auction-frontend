@@ -6,8 +6,6 @@ import { useAuction } from '../context/AuctionContext';
 const PlayerCard = ({ player, onBuy, isCaptain }) => {
   const { favorites, toggleFavorite } = useAuction();
   const isFavorite = favorites.includes(player.id);
-  const isChill = localStorage.getItem('isChill') === 'true';
-  const bothChill = isChill && player.isChill
   const isObserver = localStorage.getItem('observer') === 'true';
   // console.log("==========================================")
   // console.log("Player Card Info:");
@@ -24,9 +22,10 @@ const PlayerCard = ({ player, onBuy, isCaptain }) => {
   const pickable =  isObserver || 
                     isCaptain ||
                     (player.ownerUsername !== localStorage.getItem('username') && 
+                    player.isSubCaptain === false &&
                     canPick(player.nationality, localStorage.getItem('nationality'), player.playWithAnotherLanguage, localStorage.getItem('playWithAnotherLanguage') === 'true'));
 
-  const availablePlayerCardClass = `available-player-card ${isFavorite ? 'favorite' : ''} ${pickable ? '' : 'unavailable'}`;
+  const availablePlayerCardClass = `available-player-card ${isFavorite ? 'favorite' : ''} ${pickable ? '' : player.isSubCaptain ? '' : 'unavailable'}`;
   const playerInfoClass = `player-info ${isCaptain ? 'captain' : ''}`;
 
   return (
