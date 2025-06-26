@@ -1,15 +1,20 @@
 
-export function canPick(nationalityA, nationalityB, playWithAnotherLanguageA, playWithAnotherLanguageB) {
+export function canPick(playerNationality, captainNationality, playerPlayWithAnotherLanguageA) {
+
+  // If nationalities are different, the player must be able to play with another language
+  if (playerPlayWithAnotherLanguageA) {
+    return true;
+  }
   // If nationalities are equal, always allow
-  if (nationalityA === nationalityB) {
+  if (playerNationality === "BR" && captainNationality === "BR") {
     return true;
   }
-  
-  // If nationalities are different, both players must be willing to play with another language
-  if (playWithAnotherLanguageA && playWithAnotherLanguageB) {
-    return true;
+
+  // If player and captain are from different countries, allow if neither is BR
+  if( playerNationality !== "BR" && captainNationality !== "BR") {
+      return true;
   }
-  
+
   // Otherwise, don't allow
   return false;
 }

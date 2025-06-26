@@ -23,7 +23,7 @@ const PlayerCard = ({ player, onBuy, isCaptain }) => {
                     isCaptain ||
                     (player.ownerUsername !== localStorage.getItem('username') && 
                     player.isSubCaptain === false &&
-                    canPick(player.nationality, localStorage.getItem('nationality'), player.playWithAnotherLanguage, localStorage.getItem('playWithAnotherLanguage') === 'true'));
+                    canPick(player.nationality, localStorage.getItem('nationality'), player.playWithAnotherLanguage));
 
   const availablePlayerCardClass = `available-player-card ${isFavorite ? 'favorite' : ''} ${pickable ? '' : player.isSubCaptain ? '' : 'unavailable'}`;
   const playerInfoClass = `player-info ${isCaptain ? 'captain' : ''}`;
